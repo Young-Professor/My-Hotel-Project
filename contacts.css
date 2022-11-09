@@ -1,0 +1,92 @@
+.ContactUss{
+    background-color: rgb(240, 202, 241);
+    height: auto;
+}
+.ContactPage{
+    background-image: url("photos/hotelB.jpg");
+          background-repeat: no-repeat;
+          background-size: cover;
+          height: 250px;
+          width: 95%;
+          margin: auto;
+          
+}
+.ContactPage h1{
+ margin-left: 40%;
+ margin-right: 40%;
+ margin-top: 80px;
+ font-size: 2.5rem;
+ color: rgb(255, 255, 255);
+}
+.ContactUss h3{
+    margin: auto;
+    margin-left: 43%;
+    margin-right: 43%;
+    width: 150px;
+    margin-top: -20px;
+    background-color: rgb(50, 86, 184);
+    color: rgb(255, 255, 255);
+    padding: 20px;
+}
+.ContactUss h5{
+    margin-left: 40%;
+}
+#SendMessage{
+background-color: rgb(76, 144, 145);
+height: 290px;
+width: 350px;
+margin-left: 5%;
+}
+#mail{
+    margin-left: 35px;
+}
+#MessageLable{
+    color: white;
+    margin-left: 15px;
+}
+#SendMessage input{
+    height: 30px;
+
+}
+#SendMessage textarea{
+    height: 90px;
+}
+#feedBack button{
+float: right;
+margin-top: -23px;
+padding: 7px;
+margin-right: 7px;
+}
+.SectionWithLeaveMessage{
+display: flex;
+overflow:scroll;
+}
+#Addresses{
+background-color: rgb(76, 144, 145);
+height: 290px;
+width: 350px;
+margin-left: 5%;
+}
+#Addresses p{
+ margin-top: 20px;
+ margin-left: 10px;
+}
+#Parto{
+    margin-left: 40px;
+}
+
+@media (max-width:520px) {
+    .SectionWithLeaveMessage{
+        display: block;
+        /* overflow:scroll; */
+        }
+        #Parto{
+            margin-bottom: 20px;
+        }
+        #Justo{
+            margin-top: 20px;
+        }
+        #SpanFornavTab{
+            display:none;
+          }
+}

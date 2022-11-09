@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="StyleSheet" href="About.css" />
+    <link rel="stylesheet" href="contacts.css">
+    <script src="Main.js"></script>
+  </head>
+  <body>
+    <nav>
+      <a href="About_Us.html">
+        <img loading="lazy" id="logo" src="photos/10 star hotel logo png.png" alt="" />
+      </a>
+      <div >
+      <ul class="navlinks" id="navlinks">
+        <span class="CancelMenuIcon" onclick="HideMenu()">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+          </svg>          
+        </span>
+        <li>
+          <a href="index.html" class="home_route">
+            <!-- ......Code with the home icon.................... -->
+            <span  id="SpanFornavTab"          
+              ><svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="w-6 h-6"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"
+                />
+              </svg> </span
+            >Home</a
+          >
+          <!-- ........End of Code with the home icon.................... -->
+        </li>
+        <li >
+          <a href="#" class="home_route"
+            >Services
+            <span id="SpanForServices" onclick="MoreServices()">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+              </svg>
+              
+            </span>
+            <span id="SpanFornavTab" >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="w-6 h-6"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M19.5 8.25l-7.5 7.5-7.5-7.5"
+                />
+              </svg> </span
+          ></a>
+          <ul id="dropdown-menu">
+            <li><a href="Recreation.html">Recreation</a></li>
+            <li><a href="Food&Drinks.html">Bar and Restaurant</a></li>
+            <li><a href="#">Conference</a></li>
+          </ul>
+        </li>
+        <li><a href="Accomodation.html">Accomodation</a></li>
+        <li><a href="Contacts.html">Contacts Us</a></li>
+        <li><a href="About_Us.html">About</a></li>
+        <li style="background-color: green; padding: 10px; border-radius: 10px; "><a href="login.html">Sign In</a></li>
+        </ul>
+      </div>
+        <span class="MenuIcon"  onclick="ShowMenu()">
+         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+           <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+         </svg>        
+       </span>
+    </nav>
+    <section class="ContactUss">
+      <div class="ContactPage">
+
+        <!-- <h2>Welcome</h2> -->
+        <br>
+        <h1>Contacts Us</h1>
+      </div>
+      <h3>Get in touch</h3>
+      <br>
+      <h5>Email  : <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-envelope-fill" viewBox="0 0 16 16">
+  <path d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555ZM0 4.697v7.104l5.803-3.558L0 4.697ZM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757Zm3.436-.586L16 11.801V4.697l-5.803 3.546Z"/>
+</svg>
+        <b style="color:rgb(140, 21, 0);">&nbsp;&nbsp;&nbsp;youngprofessor991@gmail.com</b></h5>
+      <h5>contact:<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-telephone-fill" viewBox="0 0 16 16">
+        <path fill-rule="evenodd" d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z"/>
+      </svg>
+        <b style="color:rgb(146, 22, 0);">&nbsp;&nbsp;0729144533</b></h5>
+        <br>
+<!-- ................Leave message.................... -->
+        <section class="SectionWithLeaveMessage">
+
+          <div id="Parto">
+            <img style="border-radius: 40%;" src="photos\Dp.jpg" alt="" height="200px">
+            <h4>Talk to our <br>support team at:<br><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-telephone-fill" viewBox="0 0 16 16">
+              <path fill-rule="evenodd" d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z"/>
+            </svg>
+              0729144533</h4>
+          </div>
+
+          <div id="SendMessage">
+            <br>
+            <h4 id="MessageLable" style="color:white ;">You can leave your message here</h4>
+                   <br>
+                   <label id="mail" for="gmail">Email</label>
+                   <br>
+                   <input id="mail" type="email" name="gmail">
+                   <br>
+                   <br>
+                    <div id="feedBack">
+                    <div>
+                      <label for="LeavingFeedBack" class="form-label"><b>Message</b></label>
+                      <br>
+                      <textarea placeholder="Your Message..." class="form-control" id="LeavingFeedBack"></textarea>
+                    </div>
+                    <button>Submit</button>
+          </div>
+
+        </div>
+
+        <div id="Addresses">
+          <p><span style="color: black; font-weight: bold;">P.O. Box :</span> 2374-1331 <br> 
+            <span style="padding: 73px;"> Newston</span>
+            <br> <span style="color: black; font-weight: bold;">Tel:</span> <span>+254 23-134 </span><br>
+            <span style="color: black; font-weight: bold;">Fax:</span> <span >09423656213</span>  <br> <br> 
+        </div>
+        <!-- ...........Support team............ -->
+        <div id="Justo" style="margin-left: 40px;">
+          <img style="border-radius: 90%;" src="photos\Chopie.jpeg" alt="" height="200px">
+          <h4>Talk to our <br>support team at:<br><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-telephone-fill" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z"/>
+          </svg>
+            0729144533</h4>
+        </div>
+        </section>
+    </section>
+  </body>
+</html>

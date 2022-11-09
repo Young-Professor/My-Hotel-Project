@@ -1,0 +1,147 @@
+const mysql = require("mysql2");
+const express = require("express");
+const path = require("path");
+const bodyParser = require("body-parser");
+const encoder = bodyParser.urlencoded();
+const cors = require("cors");
+const { nextTick } = require("process");
+const app = express();
+
+app.use(express.json());
+app.use(cors());
+
+
+app.use(express.static(path.join(__dirname, "/")));// sends the index page by default
+app.use(express.urlencoded({extended: true}));
+
+var db = mysql.createConnection({
+  host: "localhost",
+  user: "root",
+  password: "Smart",
+  database: "hotelmanagement",
+});
+
+db.connect((err, res) => {
+  if (err) {
+    console.log(err);
+  } else {
+    console.log("Database connected");
+  }
+});
+
+
+// create account
+app.post("/signup", (req, res) => {
+  const FNAME = req.body.FNAME;
+  const LNAME = req.body.LNAME;
+  const EMAIL = req.body.EMAIL;
+  const PSD = req.body.PSD;
+  const sqlInsert =
+    "insert into customer(FNAME,LNAME,EMAIL,PSD) values(?,?,?,?)";
+  db.query(sqlInsert, [FNAME, LNAME, EMAIL, PSD], (err, result) => {
+    if (err) console.log(err);
+    else console.log(result);
+  });
+});
+// login
+var thereIsUser=false;
+var userdetails=""
+app.post("/login", encoder, (req, res) => {
+  var username = req.body.username;
+  var password = req.body.password;
+  db.query(
+    "select * from customer  where EMAIL= ? AND PSD= ?",
+    [username, password],
+    (err, result) => {
+      if(result.length > 0 && username=='Admin1@gmail.com' || username=='Admin2@gmail.com' ){
+        res.redirect('/Admin.html')
+      }
+      else if (result.length > 0) {
+        res.redirect('/Index.html')
+        console.log("User logged in");
+        thereIsUser=true;
+        userdetails=result;
+      } else {
+        res.send('Incorect cridentials!! please try again')
+        console.log("Error: wrong cridentials");
+      }
+    }
+    );
+  });
+  app.get('/check',(req,resss)=>{
+    let user='Hem'
+    resss.send(userdetails);
+   
+  })
+
+// -----------------------------------------------------------
+// app.get("/", (req, res) => {
+//   res.sendFile(__dirname + "/Admin.html");
+// });
+
+// ========================================
+
+// -----------------------Displaying data to html--------------------------------------------------
+app.get("/availablebookings", (req, res) => {
+ const sqlGetBookings='SELECT * FROM book'
+ db.query(sqlGetBookings,(err,bookings)=>{
+  if(err) console.log(err);
+  else{ 
+     res.send(bookings);}
+ })
+});
+
+// update rooms
+app.post("/roomUpdate", (req, res) => {
+  const CHECK_IN = req.body.CHECK_IN;
+  const CHECK_OUT = req.body.CHECK_OUT;
+  const ACCOUNT = req.body.ACCOUNT;
+  const ROOM_TYPE = req.body.ROOM_TYPE;
+  const ROOMS_AVAILABLE = req.body.ROOMS_AVAILABLE;
+
+  const sqlInsertRooms =
+    "insert into rooms(CHECK_IN,CHECK_OUT,ACCOUNT,ROOM_TYPE,ROOMS_AVAILABLE) values(?,?,?,?,?)";
+  db.query(
+    sqlInsertRooms,
+    [CHECK_IN, CHECK_OUT, ACCOUNT, ROOM_TYPE, ROOMS_AVAILABLE],
+    (err, result) => {
+      if (err) console.log(err);
+      else console.log(result);
+    }
+  );
+});
+// ........................................................
+app.post("/book", (req, res) => {
+  const CHECK_IN = req.body.CHECK_IN;
+  const CHECK_OUT = req.body.CHECK_OUT;
+  const ACCOUNT = req.body.ACCOUNT;
+  const ROOM_NAME = req.body.ROOM_NAME;
+
+  const sqlInsertBookings =
+    "insert into book(CHECK_IN,CHECK_OUT,ACCOUNT,ROOM_NAME) values(?,?,?,?)";
+  db.query(
+    sqlInsertBookings,
+    [CHECK_IN, CHECK_OUT, ACCOUNT, ROOM_NAME],
+    (err, result) => {
+      if (err) console.log(err);
+      else console.log(result);
+    }
+  );
+// axios.post(' https://sandbox.safaricom.co.ke/mpesa/stkpushquery/v1/query',
+// {
+//   "BusinessShortCode": "174379",
+//   "Password": "MTc0Mzc5YmZiMjc5ZjlhYTliZGJjZjE1OGU5N2RkNzFhNDY3Y2QyZTBjODkzMDU5YjEwZjc4ZTZiNzJhZGExZWQyYzkxOTIwMTkwOTIzMDc0MTIw",
+//   "Timestamp": "20190923074120",
+//   "CheckoutRequestID": "ws_CO_260520211133524545"
+//   }
+// )
+});
+//-----------------------------------------------------
+
+app.listen(3000, (err) => {
+  if (err) {
+    console.log(err);
+  } else {
+    console.log("Listening on port 3000");
+  }
+});

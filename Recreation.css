@@ -1,0 +1,141 @@
+body{
+    background: rgb(247, 143, 247);
+     background-image: url("PichaProject/Recreation bg 3.jpg");
+    
+    background-size: cover;
+    background-repeat: no-repeat; 
+    font-family:'Times New Roman', Times, serif
+}
+
+h1{
+    text-align: center; 
+    font-size: 19px;
+    color: #fff;
+}
+p{
+    color: #fff;
+    text-align: center;
+    font-size: 12px;
+}
+
+.allboxes{
+
+    color: #000;
+    display: flex;  
+    place-content: center;
+} 
+
+.allboxes div{
+    height: 40vh;
+     /* background-image: url("PichaProject/Sample (1).jpg"); */
+    background-size: contain;
+    background-repeat: no-repeat;
+    align-content: center;
+    display: flex;
+    flex-direction: column;
+    width: 15%;
+    box-shadow: 4px 4px 12px 2px;
+    border-radius: 10%;      
+    background-color: #fff;
+    transition: 0.5s ease-in-out;    
+    /* overflow-y: hidden; */
+}
+
+.allboxes div b{
+    margin:1%;
+    background-color: rgb(128, 128, 128);
+    opacity: 100%;
+    color: #fffb00;
+    margin-top: 40%;
+    padding: 1%;
+    width: 100px;
+}
+
+.allboxes div b{
+    text-shadow: 5px 5px 12px 2px#000000;
+}
+
+.allboxes div p{
+    color: #000;
+    font-size: 8px;
+    margin-bottom: 60%;
+    margin-top: 10%;
+    padding: 0.7%;
+}
+
+.allboxes div:hover{
+    transform: translateY(-1rem);
+}
+
+/* ----------------------------------------------Box images ---------------------------------------------------- */
+
+#box1{
+    background-image: url("PichaProject/Archery.jpg");
+} 
+
+#box2{
+    background-image: url("PichaProject/Chess.jpg");
+}
+
+#box3{
+    background-image: url("PichaProject/Golf\ 2.jpg");
+}
+
+#box4{
+    background-image: url("PichaProject/Gymnastics.jpg");
+} 
+
+#box5{
+    background-image: url("PichaProject/Swimming.jpg");
+} 
+
+#box6{
+    background-image: url("PichaProject/Skiing.jpg");
+}
+
+#box7{
+    background-image: url("PichaProject/Boat\ Racing.jpg");
+} 
+
+#box8{
+    background-image: url("PichaProject/PlayStation.jpg");
+} 
+
+#box9{
+    background-image: url("PichaProject/Safari\ Tours.jpg");
+}
+
+#box10{
+    background-image: url("PichaProject/Line\ Riding.jpg");
+}
+
+/* ----------------------------------------------------End of Box images---------------------------------------------- */
+
+.otherservices{
+    background-color: rgb(227, 179, 231);
+    border-radius: 10px;
+    box-shadow: 40px, 40px, 10px, 12px;
+}
+
+.otherservices h3{
+    text-align: center;
+    color: rgb(0, 0, 0);
+    padding-left: 5px;
+}
+#otherserviceslist li {
+    list-style: none;
+    text-align: center;
+    margin-top: 4px;
+    font-size: 10px;
+    color: rgb(0, 0, 0)
+    
+}
+
+#recvisit{
+color: #000;
+}
+
+@media (max-width=500px){
+
+    
+}
