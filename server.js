@@ -6,6 +6,7 @@ const encoder = bodyParser.urlencoded();
 const cors = require("cors");
 const { nextTick } = require("process");
 const app = express();
+const dotevn=require("dotenv").config();
 
 app.use(express.json());
 app.use(cors());
@@ -17,8 +18,8 @@ app.use(express.urlencoded({extended: true}));
 var db = mysql.createConnection({
   host: "localhost",
   user: "root",
-  password: "Smart",
-  database: "hotelmanagement",
+  password: process.env.password,
+  database:process.env.DB ,
 });
 
 db.connect((err, res) => {
@@ -57,10 +58,11 @@ app.post("/login", encoder, (req, res) => {
         res.redirect('/Admin.html')
       }
       else if (result.length > 0) {
-        res.redirect('/Index.html')
+        res.redirect('/Accomodation.html')
         console.log("User logged in");
         thereIsUser=true;
         userdetails=result;
+       
       } else {
         res.send('Incorect cridentials!! please try again')
         console.log("Error: wrong cridentials");
@@ -83,7 +85,7 @@ app.post("/login", encoder, (req, res) => {
 
 // -----------------------Displaying data to html--------------------------------------------------
 app.get("/availablebookings", (req, res) => {
- const sqlGetBookings='SELECT * FROM book'
+ const sqlGetBookings='SELECT FNAME,CHECK_IN,CHECK_OUT,ACCOUNT,BOOKING_DATE,ROOM_NAME FROM book LEFT JOIN CUSTOMER ON book.CUSTID=CUSTOMER.CUSTID'
  db.query(sqlGetBookings,(err,bookings)=>{
   if(err) console.log(err);
   else{ 
@@ -112,16 +114,17 @@ app.post("/roomUpdate", (req, res) => {
 });
 // ........................................................
 app.post("/book", (req, res) => {
+  const CUSTID = req.body.CUSTID;
   const CHECK_IN = req.body.CHECK_IN;
   const CHECK_OUT = req.body.CHECK_OUT;
   const ACCOUNT = req.body.ACCOUNT;
   const ROOM_NAME = req.body.ROOM_NAME;
 
   const sqlInsertBookings =
-    "insert into book(CHECK_IN,CHECK_OUT,ACCOUNT,ROOM_NAME) values(?,?,?,?)";
+    "insert into book(CUSTID,CHECK_IN,CHECK_OUT,ACCOUNT,ROOM_NAME) values(?,?,?,?,?)";
   db.query(
     sqlInsertBookings,
-    [CHECK_IN, CHECK_OUT, ACCOUNT, ROOM_NAME],
+    [CUSTID,CHECK_IN, CHECK_OUT, ACCOUNT, ROOM_NAME],
     (err, result) => {
       if (err) console.log(err);
       else console.log(result);

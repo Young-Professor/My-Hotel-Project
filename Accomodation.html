@@ -4,7 +4,8 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>About Us</title>
+    <title>Accomodation</title>
+    <!-- <meta http-equiv="refresh" content="10"> -->
     <link rel="StyleSheet" href="style.css" />
     <link rel="StyleSheet" href="Accomodation.css" />
     <script src="Main.js"></script>
@@ -78,7 +79,7 @@
         <li><a href="Accomodation.html">Accomodation</a></li>
         <li><a href="Contacts.html">Contacts Us</a></li>
         <li><a href="About_Us.html">About</a></li>
-        <li style="background-color: green; padding: 10px; border-radius: 10px; "><a href="login.html">Sign In</a></li>
+        <li id="sign_in" style="background-color:  green; padding: 10px; border-radius: 10px; "><a href="login.html">Sign In</a></li>
         </ul>
       </div>
         <span class="MenuIcon"  onclick="ShowMenu()">
@@ -829,7 +830,10 @@
 
     <!-- After clicking the book button -->
     <dialog class="proceedRoom">
-      
+      <svg style="height:40px; float:right; margin-top:-20px; margin-right:-10px " id="HidePayMentPopUp"  xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+      </svg> 
+      <br>
       <section id="checkinDatess">
         <div>
           <label  for="date">Check in Date</label>
@@ -872,5 +876,32 @@
         <!-- <input type="submit" id="Submit" value="Submit"> -->
       </section>
     </dialog>
+
+    <!-- This is the pop up the show user that they have succefully booked -->
+    <dialog class="BookingRecived">
+      <svg style="height:30px; color:black; float:right; margin-top:-20px; margin-right:-10px " id="ConfirmationBookingPopUp"  xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+      </svg> 
+      <br>
+      <br>
+        <h2>Booking received succesfully</h2>
+      <img src="Confirmed.png" alt="" height="80px" style="margin-left:40px;">
+    </dialog>
+
+
+    <!-- This is used to change the sign up link to the user who has joined -->
+    <Script>
+      fetch("http://localhost:3000/check").then((userD)=>{
+              return userD.json();
+            }).then((UseRData)=>{
+              if(UseRData==''){
+
+              }
+              else{
+                let fname=UseRData[0].FNAME;
+                document.querySelector('#sign_in').innerHTML="welcome "+ fname;
+              }
+            })
+    </Script>
   </body>
 </html>

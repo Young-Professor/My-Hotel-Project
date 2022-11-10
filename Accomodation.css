@@ -98,6 +98,19 @@ margin-top: -10px;
     background: black;
     opacity: .7;
 }
+.BookingRecived{
+    text-align: center;
+    width: 30%;
+    height: 30%;
+    color: #fff;
+    background: rgb(16, 126, 66);
+    margin: auto;
+    padding: 20px;
+}
+.BookingRecived::backdrop{
+    background: rgb(0, 0, 0);
+    opacity: .7;
+}
 
 #checkinDatess{
     display: flex;

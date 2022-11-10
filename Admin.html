@@ -220,10 +220,10 @@
     <section class="Book_Order">
       <h1>Bookings</h1>
       <br />
-      <div id="Bookings">
+      <div id="Bookings" style="height:300px; overflow:scroll;">
         <table>
           <thead>
-            <!-- <th bgcolor="tan" height="30px" width="200px">Customer Name</th> -->
+            <th bgcolor="tan" height="30px" width="200px">Customer Id</th>
             <th bgcolor="tan" height="30px" width="200px">Account_Number</th>
             <th bgcolor="tan" height="30px" width="200px">Check-in date</th>
             <th bgcolor="tan" height="30px" width="200px">Check-out date</th>
@@ -232,18 +232,15 @@
           </thead>
           <tr width="200px">
           </tr>
+          <!-- Where items will be kept after they have been removed from database -->
           <tbody id='bookeed'>
-
+            <th bgcolor="skyblue" height="30px" width="200px"></th>
+            <th bgcolor="skyblue" height="30px" width="200px"></th>
+            <th bgcolor="skyblue" height="30px" width="200px"></th>
+            <th bgcolor="skyblue" height="30px" width="200px"></th>
+            <th bgcolor="skyblue" height="30px" width="200px"></th>
+            <th bgcolor="skyblue" height="30px" width="200px"></th>
           </tbody>
-            
-          <!-- empty cells -->
-          <tr width="200px">
-            <th bgcolor="skyblue" height="30px" width="200px"></th>
-            <th bgcolor="skyblue" height="30px" width="200px"></th>
-            <th bgcolor="skyblue" height="30px" width="200px"></th>
-            <th bgcolor="skyblue" height="30px" width="200px"></th>
-            <th bgcolor="skyblue" height="30px" width="200px"></th>
-          </tr>
         </table>
       </div>
       <br />
@@ -378,12 +375,11 @@
           }).then((RoomsBookedd)=>{
             let tableData="";
               RoomsBookedd.map((values)=>{
-                var checkdates = new Date(RoomsBookedd[1].BOOKING_DATE);
-                var bookdate= (checkdates.getDate() + '/' + (checkdates.getMonth()+1) + '/' + checkdates.getFullYear())
                 
                 tableData+=
                 `
                 <tr width="200px">
+                  <td bgcolor="skyblue" style="text-align: center;" height="30px" width="200px">${values.FNAME}</td>
                   <td bgcolor="skyblue" style="text-align: center;" height="30px" width="200px">${values.ACCOUNT}</td>
                   <td bgcolor="skyblue" style="text-align: center;" height="30px" width="200px">${values.CHECK_IN.slice(0,10)}</td>
                   <td bgcolor="skyblue" style="text-align: center;" height="30px" width="200px">${values.CHECK_OUT.slice(0, 10)}</td>

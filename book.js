@@ -1,3 +1,16 @@
+let customerID=""
+let isCustomerlogedIn
+fetch("http://localhost:3000/check").then((userD)=>{
+              return userD.json();
+            }).then((UseRData)=>{
+              if(UseRData==''){
+
+              }
+              else{
+                customerID=UseRData[0].CUSTID;
+                isCustomerlogedIn=true;
+              }
+            })
 
 let roomdesc1 = document.querySelector("#roomDesc1").textContent;
 let roomprice1 = document.querySelector("#roomPrice1").textContent;
@@ -28,13 +41,41 @@ let roomprice9 = document.querySelector("#roomPrice9").textContent;
 //
 let roomdesc10 = document.querySelector("#roomDesc10").textContent;
 let roomprice10 = document.querySelector("#roomPrice10").textContent;
-// //
-let roomdesc11 = document.querySelector("#roomDesc11").textContent;
-let roomprice11 = document.querySelector("#roomPrice11").textContent;
 
-let roomdesc12 = document.querySelector("#roomDesc12").textContent;
-let roomprice12 = document.querySelector("#roomPrice12").textContent;
-//
+
+
+// //
+// let HomepRoomName1= document.querySelector(".HomepRoomName1").textContent;
+// let HomeRoomPrice1 = document.querySelector(".HomeRoomPrice1").textContent;
+
+// let HomepRoomName2= document.querySelector(".HomepRoomName2").textContent;
+// let HomeRoomPrice2 = document.querySelector(".HomeRoomPrice2").textContent;
+// //
+// let HomepRoomName3= document.querySelector(".HomepRoomName3").textContent;
+// let HomeRoomPrice3 = document.querySelector(".HomeRoomPrice3").textContent;
+
+// const HomeBook1 = document.querySelector("#HomeBook1");
+// const HomeBook2 = document.querySelector("#HomeBook2");
+// const HomeBook3 = document.querySelector("#HomeBook3");
+// // The three rooms in homepage
+// HomeBook1.addEventListener("click", () => {
+//   modal.showModal();
+//   document.querySelector("#RoomName").innerHTML = HomepRoomName1;
+//   document.querySelector("#price").innerHTML = HomeRoomPrice1;
+// });
+// HomeBook2.addEventListener("click", () => {
+//   modal.showModal();
+//   document.querySelector("#RoomName").innerHTML = HomepRoomName2;
+//   document.querySelector("#price").innerHTML = HomeRoomPrice2;
+// });
+// HomeBook3.addEventListener("click", () => {
+//   modal.showModal();
+//   document.querySelector("#RoomName").innerHTML = HomepRoomName3;
+//   document.querySelector("#price").innerHTML = HomeRoomPrice3;
+// });
+
+
+
 const RoomL = document.querySelector(".BookingButtons");
 const Room1 = document.querySelector("#Room1");
 const Room2 = document.querySelector("#Room2");
@@ -47,8 +88,14 @@ const Room8 = document.querySelector("#Room8");
 const Room9 = document.querySelector("#Room9");
 const Room10 = document.querySelector("#Room10");
 const Room11 = document.querySelector("#Room11");
+
 const modal = document.querySelector(".proceedRoom");
 const Submited = document.querySelector("#Send");
+
+const BookingRecived= document.querySelector(".BookingRecived");
+const HidePayMentPopUp= document.querySelector("#HidePayMentPopUp");
+const ConfirmationBooking= document.querySelector("#ConfirmationBookingPopUp");
+
 
 Room1.addEventListener("click", () => {
   modal.showModal();
@@ -105,39 +152,46 @@ Room11.addEventListener("click", () => {
   document.querySelector("#RoomName").innerHTML = roomdesc11;
   document.querySelector("#price").innerHTML = roomprice11;
 });
-Submited.addEventListener("click", () => {
-  const Accc = document.querySelector("#AccountN").value;
-  const checkiInn = document.querySelector("#CheckIndate").value;
-  const checkiOutt= document.querySelector("#CheckOutdate").value;
-  if(Accc!=""){
-    if(checkiOutt!="" && checkiInn!=""){
-      modal.close();
-    }
-    else{
-      alert("Please enter dates")
-    }
-  }
-  else alert("Please enter account number")
-});
+
+// losing the payment pop up
+HidePayMentPopUp.addEventListener("click", () => {
+  modal.close();
+})
+ConfirmationBooking.addEventListener("click", () => {
+  BookingRecived.close();
+})
 
 
 const Send = document.querySelector("#Send");
 Send.addEventListener("click", () => {
-  const Acc = document.querySelector("#AccountN").value;
-  const checkiIn = document.querySelector("#CheckIndate").value;
-  const checkiOut= document.querySelector("#CheckOutdate").value;
-  const roomName= document.querySelector("#RoomName").textContent;
-  // alert(`Account: ${Acc}`)
-  // alert(`Check in: ${Date1}`)
-  // alert(`Check out: ${roomName}`)
-
-  const bookData={CHECK_IN:checkiIn,CHECK_OUT:checkiOut,ACCOUNT:Acc,ROOM_NAME:roomName}
-  fetch('http://localhost:3000/book',{
-    body:JSON.stringify(bookData),
-    method:'POST',
-    headers:{
-      "Content-type":"Application/json"
-    }
-  })
+    const Acc = document.querySelector("#AccountN").value;
+    const checkiIn = document.querySelector("#CheckIndate").value;
+    const checkiOut= document.querySelector("#CheckOutdate").value;
+    const roomName= document.querySelector("#RoomName").textContent;
+    
+  // Checking whether user has loged in and whether he has all inputs
+  if(customerID==''){
+    alert("Login first")
+    location.href='login.html'
+  }
+  else if(Acc==''){
+    alert("Enter Accout")
+  }
+  else if(checkiOut=='' || checkiIn==''){
+    alert("Enter Dates")
+      }
+  else{ 
+    const bookData={CUSTID:customerID,CHECK_IN:checkiIn,CHECK_OUT:checkiOut,ACCOUNT:Acc,ROOM_NAME:roomName}
+    fetch('http://localhost:3000/book',{
+      body:JSON.stringify(bookData),
+      method:'POST',
+      headers:{
+        "Content-type":"Application/json"
+      }
+    })
+  // Confirming to user that his bookings has been received
+  modal.close();
+  BookingRecived.showModal();
+}
 });
 
