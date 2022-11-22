@@ -4,8 +4,10 @@
     box-sizing: border-box;
     font-family: "Poppins", sans-serif;
   }
+
   html {
     scroll-behavior:smooth;
+    
   }
   
   .headerNav{
@@ -22,7 +24,7 @@
     height: 200px;
     width: 20px;
     overflow: scroll;  
-  }
+}
 .headerNav h2{
     margin-top: 30px;
     /* margin-right: 67%; */
@@ -32,7 +34,7 @@
 }
 #navigations{
     width:25%;
-    height: calc(100vh - 70px);
+    /* height: calc(100vh - 70px); */
     background-color: rgb(233, 229, 229);
     display: block;
 }
@@ -63,29 +65,48 @@
     margin-top: 15px;
     text-align: center;
 }
-
+.BookItems{
+    width: 100px;
+    height: 40;
+    /* display: none; */
+}
+.BookItems td{
+    /* display: none; */
+    /* background-color: aqua; */
+    height: 30px;
+    width: 20px;
+    text-align: center;
+}
+.MyMessages {
+    /* background-color: tan; */
+}
+.MyMessages h3{
+    text-align: center;
+    
+}
 #Messages{
     height: 345px;
-    width: 90%;
+    /* width: 90%; */
     margin-left: 10px;
-    background-color: rgb(252, 231, 203);
-    border-radius: 10px;
+    /* background-color: rgb(252, 243, 232); */
+    /* border-radius: 10px; */
+    overflow: scroll;
 }
 #Messages h3{
    text-align: center;
-    padding: 10px;
+   padding: 10px;
 }
 #Messages p{
- width: 99%;
- margin-left:3px;
+ /* width: 99%; */
+ /* margin-left:3px; */
  height: 65px;
- background-color: white;
+ background-color: rgb(255, 220, 220);
  padding: 10px;
  overflow: hidden;
 }
 #review{
     height: 250px;
-    width: 300px;
+    width: 90%;
     background-color: rgb(123, 152, 202);
     border-radius: 10px;
     margin: 20px;
@@ -111,32 +132,24 @@
     width: 90%;
     font-size: 1.1rem;
 }
-
-@media(max-width: 520px){
-    #NewProduct{
-        width: 70px;
-        font-size: 0.8rem;
-        padding: 10px;
-    }
-    #navigations{
-        /* width:60px; */
-        height: calc(100vh - 70px);
-        background-color: rgb(233, 229, 229);
-        display: block;
-    }
-    .Admin{
-        /* display: block; */
-    }
+#NewProductForSmall{
+    display: none;
 }
+
 #Bookings{
-    height: auto;
-    width: 80%;
+    height: 300px;
+    width:80%;
     margin-left: 10%;
     background-color: rgb(230, 189, 219);
-    border-radius: 10px;
+    border-radius: 5px;
     padding: 20px;
+    overflow: scroll;
 }
-
+#theaders th{
+    height: 30px;
+    width: 170px;
+    background-color: tan;
+}
 #orders{
     height:auto;
     width: 80%;
@@ -176,11 +189,54 @@ text-align: center;
     font-size: 18px;
 }
 .submit{
-margin-left: 80%;
+    margin-left: 80%;
 width: 80px;
 }
 
 #updateproduct::backdrop{
     background: rgb(0, 0, 0);
     opacity: .7;
+}
+@media (max-width:720px) {
+    #navigations{
+        width:5%;
+    }
+    .dashboard{
+        width: 65%;
+    }
+    .preview{
+        width: 30%;
+    }
+    #Analytics{
+        /* overflow: scroll; */
+    }
+    #Analytics span{
+        height: 150px;
+        /* width: 900px; */
+        margin: 10px;
+    }
+    #Analytics span h1{
+        font-size: 0.9rem;
+        margin-top: 15px;
+        text-align: center;
+    }
+    #theaders th{
+        height: 30px;
+        width: 270px;
+        background-color: tan;
+    }
+    .BookItems td{
+        height: 30px;
+        width: 20px;
+        text-align: left;
+    }
+
+    #NewProduct{
+        display: none;
+    }
+    #NewProductForSmall{
+        border-style: none;
+        display: block;
+        font-size: 1.7rem;
+    }
 }

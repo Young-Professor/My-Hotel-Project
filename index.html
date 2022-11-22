@@ -109,23 +109,7 @@
           </p>
           <br>
           <!-- ==============User data after log in======================== -->
-          <script>
-            fetch("http://localhost:3000/check").then((userD)=>{
-              return userD.json();
-            }).then((UseRData)=>{
-              if(UseRData==''){
-
-              }
-              else{
-                let fname=UseRData[0].FNAME;
-                document.querySelector('#sign_in').innerHTML="welcome "+ fname;
-              }
-            })
-            function logout(){
-              var originalHTML=`<a  href="login.html">Sign In</a>`;
-              document.querySelector('#sign_in').innerHTML=originalHTML;
-            }
-          </script>
+         
         </div>
       </section>
       <br>
@@ -431,8 +415,10 @@
       </div>
       <br>
       <!-- ........................Leave a coment -->
+      <!-- <h3 id="MessageIsSentOrNot">Is message subimited</h3> -->
+      
       <section class="CommentMap">
-                <div class="FeedBackSection">
+                <form method="post" action="/messages" class="FeedBackSection">
                   <h1>Leave your feedback here</h1>
                   <br>
                   <br>
@@ -440,17 +426,16 @@
                   <div>
                     <label for="LeavingFeedBack" class="form-label"><b>Message</b></label>
                     <br>
-                    <textarea placeholder="Type your comment here..." class="form-control" id="LeavingFeedBack"></textarea>
+                    <textarea placeholder="Type your comment here..." class="form-control" id="LeavingFeedBack" name="Ohmy" required></textarea>
                   </div>
-                  <button>Submit</button>
+                  <button type="submit">Submit</button>
                 </div>
-                </div>
+                </form>
               
                  <span id="mapArea">
                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63832.64729328976!2d37.12103165300964!3d-0.6762077328247066!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x18289876f002fda3%3A0xeb1dcff2d0357afc!2sFortune%20Green%20Hotel!5e0!3m2!1sen!2ske!4v1665779089073!5m2!1sen!2ske" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                    <h4>Our location</h4>
                  </span>
-              
     </section>
       <!-- ........................................Area with about..................................................... -->
       <section class="Bottom">
@@ -494,6 +479,33 @@
     </div>
     </section>
       <!-- ........................................End..................................................... -->
-    </div>
+      <script>
+        fetch("http://localhost:3000/check").then((userD)=>{
+          return userD.json();
+        }).then((UseRData)=>{
+          let fname=UseRData[0].FNAME;
+          if(!UseRData==''){
+            document.querySelector('#sign_in').innerHTML="welcome "+ fname;
+          }
+          else{
+          document.querySelector('#sign_in').innerHTML=originalHTML;
+          }
+        })
+        function logout(){
+          var originalHTML=`<a  href="login.html">Sign In</a>`;
+          document.querySelector('#sign_in').innerHTML=originalHTML;
+        }
+        
+      //   window.addEventListener("load", async () => {
+      //   fetch("http://localhost:3000/messageee").then((MessageSe)=>{
+      //     return MessageSe.json();  
+      //   }).then((MessageSent)=>{
+      //     let MessageConfirmation=MessageSent[0].Messag;
+      //     alert(MessageConfirmation)
+      //     document.querySelector("#MessageIsSentOrNot").innerHTML=MessageConfirmation;
+      //   })
+      // });
+    
+      </script>
   </body>
 </html>

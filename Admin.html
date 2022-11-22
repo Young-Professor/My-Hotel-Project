@@ -150,9 +150,10 @@
         <br />
         <div>
           <button id="NewProduct">+ New Product</button>
+          <button id="NewProductForSmall">+</button>
         </div>
 
-        <h4>Log out</h4>
+        <!-- <h4>Log out</h4> -->
       </div>
 
       <div class="dashboard">
@@ -160,48 +161,31 @@
         <div id="Analytics">
           <span>
             <h1>Customers</h1>
-            <h1>320</h1>
+            <h1 id="tatolcust">0</h1>
           </span>
 
           <span>
             <h1>Orders</h1>
-            <h1>23</h1>
+            <h1>0</h1>
           </span>
 
           <span>
             <h1>Bookings</h1>
-            <h1>45</h1>
+            <h1 id="Ttbookings">0</h1>
           </span>
         </div>
         <br />
         <hr />
         <br />
-        <div id="Messages">
+        <section class="MyMessages">
+        
           <h3>Messages</h3>
-          <hr />
+            
+            <div id="Messages">
 
-          <p>
-            <b>Wickliffe Munene</b><br />
-            icinimilique pariatur aut consectetur est! Molestias aut, maxime
-            adipisci, incidunt placeat pariatur odio doloribus magni cum
-            inventore, eligendi eius consectetur.
-          </p>
-          <hr />
-          <p>
-            <b>Patrick Murani</b><br />
-            icinimilique pariatur aut consectetur est! Molestias aut, maxime
-            adipisci, incidunt placeat pariatur odio doloribus magni cum
-            inventore, eligendi eius consectetur.
-          </p>
-          <hr />
-          <p>
-            <b>Young Professor</b><br />
-            icinimilique pariatur aut consectetur est! Molestias aut, maxime
-            adipisci, incidunt placeat pariatur odio doloribus magni cum
-            inventore, eligendi eius consectetur.
-          </p>
-          <hr />
-        </div>
+            </div>
+         
+        </section>
       </div>
       <div class="preview">
         <div id="review">
@@ -220,20 +204,21 @@
     <section class="Book_Order">
       <h1>Bookings</h1>
       <br />
-      <div id="Bookings" style="height:300px; overflow:scroll;">
+      <div id="Bookings">
         <table>
-          <thead>
-            <th bgcolor="tan" height="30px" width="200px">Customer Id</th>
-            <th bgcolor="tan" height="30px" width="200px">Account_Number</th>
-            <th bgcolor="tan" height="30px" width="200px">Check-in date</th>
-            <th bgcolor="tan" height="30px" width="200px">Check-out date</th>
-            <th bgcolor="tan" height="30px" width="200px">Booking date</th>
-            <th bgcolor="tan" height="30px" width="200px">Room booked</th>
+          <thead id="theaders">
+            <th>Customer_Id</th>
+            <th>Account_Number</th>
+            <th>Check_in_date</th>
+            <th>Check_out_date</th>
+            <th>Booking_date</th>
+            <th>Room_booked</th>
           </thead>
-          <tr width="200px">
-          </tr>
+          <!-- <tr width="200px" >
+
+          </tr> -->
           <!-- Where items will be kept after they have been removed from database -->
-          <tbody id='bookeed'>
+          <tbody id='bookeed' class="BookItems">
             <th bgcolor="skyblue" height="30px" width="200px"></th>
             <th bgcolor="skyblue" height="30px" width="200px"></th>
             <th bgcolor="skyblue" height="30px" width="200px"></th>
@@ -355,9 +340,14 @@
       
       <script>
         const button = document.querySelector("#NewProduct");
+        const AddRoombutton = document.querySelector("#NewProductForSmall");
         const closed = document.querySelector("#close");
         const modal = document.querySelector("#updateproduct");
 
+        <!-- For small devices -->
+        AddRoombutton.addEventListener("click", () => {
+          modal.showModal();
+        });
         button.addEventListener("click", () => {
           modal.showModal();
         });
@@ -374,17 +364,18 @@
             return RoomsBooked.json();  
           }).then((RoomsBookedd)=>{
             let tableData="";
-              RoomsBookedd.map((values)=>{
+              RoomsBookedd.map((values,index)=>{
                 
                 tableData+=
                 `
-                <tr width="200px">
-                  <td bgcolor="skyblue" style="text-align: center;" height="30px" width="200px">${values.FNAME}</td>
-                  <td bgcolor="skyblue" style="text-align: center;" height="30px" width="200px">${values.ACCOUNT}</td>
-                  <td bgcolor="skyblue" style="text-align: center;" height="30px" width="200px">${values.CHECK_IN.slice(0,10)}</td>
-                  <td bgcolor="skyblue" style="text-align: center;" height="30px" width="200px">${values.CHECK_OUT.slice(0, 10)}</td>
-                  <td bgcolor="skyblue" style="text-align: center;" height="30px" width="200px">${values.BOOKING_DATE.slice(0,10)}</td>
-                  <td bgcolor="skyblue" style="text-align: center;" height="30px" width="200px">${values.ROOM_NAME}</td>
+                <tr width="200px" class="${index}">
+                  <td bgcolor="skyblue">${values.FNAME}</td>
+                  <td bgcolor="skyblue" id="">${values.ACCOUNT}</td>
+                  <td bgcolor="skyblue">${values.CHECK_IN.slice(0,10)}</td>
+                  <td bgcolor="skyblue">${values.CHECK_OUT.slice(0, 10)}</td>
+                  <td bgcolor="skyblue">${values.BOOKING_DATE.slice(0,10)}<span style="margin-left:1rem;">${values.BOOKING_DATE.slice(11,16)}hrs</span></td>
+                  <td bgcolor="skyblue">${values.ROOM_NAME}</td>
+                  <button class="Click" onclick="alertS()">Click Me</button>
                 </tr>
                 `
               })
@@ -392,6 +383,48 @@
               innerHTML=tableData;
           })
         });
+function alertS(){
+  alert()
+}
+        window.addEventListener("load", async () => {
+        fetch("http://localhost:3000/Messages").then((msg)=>{
+          return msg.json();  
+        }).then((msges)=>{
+          let MessageDisplay="";
+            msges.map((values)=>{
+              
+              MessageDisplay+=
+              `
+          <p>
+            <b>${values.FNAME}</b><br />
+            ${values.MESSAGES}
+          </p>
+            <hr>
+              `
+            })
+            document.querySelector("#Messages").
+            innerHTML=MessageDisplay;
+        })
+      });
+
+
+        window.addEventListener("load", async () => {
+        fetch("http://localhost:3000/TotalCustomers").then((T_cust)=>{
+          return T_cust.json();  
+        }).then((Tatol_cust)=>{
+         let Tatol_customers=Tatol_cust[0].TotalCustomers;
+         document.querySelector("#tatolcust").innerHTML=Tatol_customers;
+        })
+      });
+
+        window.addEventListener("load", async () => {
+        fetch("http://localhost:3000/TotalBookings").then((T_bookin)=>{
+          return T_bookin.json();  
+        }).then((Tatol_bookin)=>{
+         let Tatol_Bookings=Tatol_bookin[0].TotalBookings;
+         document.querySelector("#Ttbookings").innerHTML=Tatol_Bookings;
+        })
+      });
       </script>
     </section>
   </body>

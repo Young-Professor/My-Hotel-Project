@@ -4,7 +4,7 @@ const path = require("path");
 const bodyParser = require("body-parser");
 const encoder = bodyParser.urlencoded();
 const cors = require("cors");
-const { nextTick } = require("process");
+const { nextTick, title } = require("process");
 const app = express();
 const dotevn=require("dotenv").config();
 
@@ -71,21 +71,14 @@ app.post("/login", encoder, (req, res) => {
     );
   });
   app.get('/check',(req,resss)=>{
-    let user='Hem'
+    // let user='Hem'
     resss.send(userdetails);
    
   })
 
-// -----------------------------------------------------------
-// app.get("/", (req, res) => {
-//   res.sendFile(__dirname + "/Admin.html");
-// });
-
-// ========================================
-
-// -----------------------Displaying data to html--------------------------------------------------
+// -----------------------Displaying Bookings to html--------------------------------------------------
 app.get("/availablebookings", (req, res) => {
- const sqlGetBookings='SELECT FNAME,CHECK_IN,CHECK_OUT,ACCOUNT,BOOKING_DATE,ROOM_NAME FROM book LEFT JOIN CUSTOMER ON book.CUSTID=CUSTOMER.CUSTID'
+ const sqlGetBookings='SELECT FNAME,BOOK_ID,CHECK_IN,CHECK_OUT,ACCOUNT,BOOKING_DATE,ROOM_NAME FROM book LEFT JOIN CUSTOMER ON book.CUSTID=CUSTOMER.CUSTID'
  db.query(sqlGetBookings,(err,bookings)=>{
   if(err) console.log(err);
   else{ 
@@ -93,6 +86,36 @@ app.get("/availablebookings", (req, res) => {
  })
 });
 
+// -----------------------Displaying Messages to html--------------------------------------------------
+app.get("/Messages", (req, res) => {
+  const sqlGetBookings='SELECT FNAME,MESSAGES FROM Messages LEFT JOIN CUSTOMER ON Messages.CUSTID=CUSTOMER.CUSTID'
+  db.query(sqlGetBookings,(err,bookings)=>{
+   if(err) console.log(err);
+   else{ 
+      res.send(bookings);}
+  })
+ });
+//  =============================
+// -----------------------Displaying Total number of customers to html--------------------------------------------------
+app.get("/TotalCustomers", (req, res) => {
+  const TotalCustomer='SELECT count(*) As TotalCustomers from customer'
+  db.query(TotalCustomer,(err,TotalCustomer)=>{
+   if(err) console.log(err);
+   else{ 
+      res.send(TotalCustomer);}
+  })
+ });
+//  =============================
+// -----------------------Displaying Total number of Bookings to Admin--------------------------------------------------
+app.get("/TotalBookings", (req, res) => {
+  const TotalBookings='SELECT count(*) As TotalBookings from book'
+  db.query(TotalBookings,(err,TotalBookings)=>{
+   if(err) console.log(err);
+   else{ 
+      res.send(TotalBookings);}
+  })
+ });
+//  =============================
 // update rooms
 app.post("/roomUpdate", (req, res) => {
   const CHECK_IN = req.body.CHECK_IN;
@@ -112,6 +135,32 @@ app.post("/roomUpdate", (req, res) => {
     }
   );
 });
+// Feedback and messages from the customer
+app.post("/messages", encoder,(req,res)=>{
+  var MESSAGES = req.body.Ohmy;
+  var CUSTID=userdetails[0].CUSTID;
+ 
+    const queryMessage=("Insert into messages (MESSAGES,CUSTID) values(?,?) ")
+    db.query(queryMessage,[MESSAGES,CUSTID,],(err,ressp)=>{
+      if(err){
+        res.send("login first")
+        } 
+      else{
+        res.send("Message was sent successfully")
+        // var respData={
+        //   Messag: "Message was sent successfully",
+        //   content:MESSAGES
+        // }
+        // const finalMessage= JSON.stringify(respData);
+        // res.status(204).send()
+        // app.get('/messageee',(req,resss)=>{
+        //   resss.send(finalMessage);
+        // })
+      }
+    });
+})
+
+
 // ........................................................
 app.post("/book", (req, res) => {
   const CUSTID = req.body.CUSTID;
