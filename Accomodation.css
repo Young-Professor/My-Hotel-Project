@@ -1,0 +1,151 @@
+
+.AccomodationRooms {
+    display: flex;
+    /* justify-content: space-between; */
+  background-image: url("photos/Mansion back.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.AccomodationRooms h1 {
+  text-align: center;
+  color: white;
+
+}
+#ComfortRoom {
+  margin-left: 10%;
+  height: auto;
+  display: flex;
+  width: 70%;
+  margin-top: 20px;
+  background-color: rgb(219, 174, 212);
+  overflow: hidden;
+}
+#ComfortRoom h3{
+    /* display: none; */
+margin-top: -10px;
+}
+#checkinDates{
+    display: none;
+    position:sticky;
+    top: 0;
+    margin-left: 20px;
+    background: rgb(53, 183, 200);
+    width: 45%;
+    height: 300px;
+    padding: 20px;
+}
+#checkinDates label{
+    font-size: 1.2rem;
+    color: rgb(0, 0, 0);
+    
+}
+#checkinDates input{
+    width: 90%;
+    height: 30px;
+    padding: 8px;
+    font-size: 1rem;
+}
+
+/* -------------------------------- */
+
+/* --------------------------- */
+
+#roomtypes{
+    padding: 8px;
+    font-size: 1rem;
+    width: 90%;
+}
+#bookButton{
+    height: 30px;
+    width: 90px;
+   float: right;
+}
+#PriceBook{
+    display: flex;
+    justify-content: space-between;
+}
+#ComfortRoom svg{
+    height: 20px;
+}
+#RoomRatingstar{
+    color: rgb(255, 255, 70);
+}
+#ComfortRoom h4{
+ margin-bottom: 5px;
+}
+@media(max-width: 420px){
+    #ComfortRoom{
+        display: block;
+        padding: 10px;
+    }
+    #ComfortRoom p{
+        margin: 10px;
+
+    }
+    #checkinDates{
+        display: none;
+    }
+
+}
+.proceedRoom{
+    width: 30%;
+    height: 65%;
+    background: rgb(219, 174, 212);
+    margin: auto;
+    padding: 20px;
+}
+.proceedRoom::backdrop{
+    background: black;
+    opacity: .7;
+}
+.BookingRecived{
+    text-align: center;
+    width: 30%;
+    height: 30%;
+    color: #fff;
+    background: rgb(16, 126, 66);
+    margin: auto;
+    padding: 20px;
+}
+.BookingRecived::backdrop{
+    background: rgb(0, 0, 0);
+    opacity: .7;
+}
+
+#checkinDatess{
+    display: flex;
+    justify-content: space-between;
+    margin-left: 5px;
+    height: 70px;
+}
+#checkinDatess label{
+    font-size: 1.2rem;
+    color: rgb(0, 0, 0);
+    
+}
+#checkinDatess input{
+    width: 100%;
+    height: 30px;
+    justify-content: space-between;
+    font-size: 1rem;
+}
+.DetailsOnPayment{
+    margin-left: 5px;
+}
+
+#RoomsTags h3{
+    color:  rgb(0, 116, 0) ;
+    justify-content: space-between; 
+}
+
+#AccountN{
+    padding: 5px;
+}
+#Send{
+    width: 100%;
+    padding: 10px;
+    font-size: 1.2rem;
+    color: #fff;
+    background-color: rgb(75, 75, 156);
+
+}

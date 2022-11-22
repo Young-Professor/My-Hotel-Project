@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="Main.js"></script>
+    <script defer src="signup.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.9.1/axios.min.js"></script>
+</head>
+<body>
+    <div class="wrapper">
+        <!-- ........................................Navigation area..................................................... -->
+        <nav>
+          <a href="About_Us.html">
+            <img loading="lazy" id="logo" src="photos/10 star hotel logo png.png" alt="" />
+          </a>
+          <div >
+          <ul class="navlinks" id="navlinks">
+            <span class="CancelMenuIcon" onclick="HideMenu()">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+              </svg>          
+            </span>
+            <li>
+              <a href="index.html" class="home_route">
+                <!-- ......Code with the home icon.................... -->
+                <span id="SpanFornavTab"
+                  ><svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    class="w-6 h-6"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"
+                    />
+                  </svg> </span
+                >Home</a
+              >
+              <!-- ........End of Code with the home icon.................... -->
+            </li>
+            <li>
+              <a href="#" class="home_route"
+                >Services
+                <span id="SpanForServices" onclick="MoreServices()">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                  </svg>
+                </span>
+                <span id="SpanFornavTab">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    class="w-6 h-6"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M19.5 8.25l-7.5 7.5-7.5-7.5"
+                    />
+                  </svg> </span
+              ></a>
+              <ul id="dropdown-menu">
+                <li><a href="Recreation.html">Recreation</a></li>
+                <li><a href="Food&Drinks.html">Bar and Restaurant</a></li>
+                <li><a href="#">Conference</a></li>
+              </ul>
+            </li>
+            <li><a href="Accomodation.html">Accomodation</a></li>
+            <li><a href="Contacts.html">Contacts Us</a></li>
+            <li><a href="About_Us.html">About</a></li>
+            <li style="background-color: green; padding: 10px; border-radius: 10px; "><a href="login.html">Sign In</a></li>
+            </ul>
+          </div>
+            <span class="MenuIcon"  onclick="ShowMenu()">
+             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+               <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+             </svg>        
+           </span>
+        </nav>
+        <!-- ........................................End..................................................... -->
+        <!-- ........................................Area that covers the screen height..................................................... -->
+        <section class="AreaCoveringTheScreen">
+          <!-- action="https://formsubmit.co/youngprofessor991@gmail.com" -->
+            <form  method="POST" method="post" id="forms">
+              <div class="Sign_up_form">
+                <h2>Sign Up Now</h2>
+                <br>
+                <div id="inputs">
+                    <label for="fname">First Name:</label>
+                    <input id="fname" type="text" name="fname" placeholder="eg. Young" required>
+                    <br>
+                    <br>
+                    <label for="lname">Last Name:</label>
+                    <input id="lname" type="text" name="lname" placeholder="eg. Professor" required>
+                    <br>
+                    <br>
+                    <label for="email">Email:</label>
+                    <input id="email" type="email" name="UName" placeholder="eg. youngprofessor991@gmail.com" required>
+                    <br>
+                    <br>
+                    <label for="psd">Password:</label>
+                    <input id="psd" type="password" name="psd">
+                    <br>
+                    <br>
+                    <br>
+                    <button type="submit" class="btn">Sign Up</button>
+                    <br>
+                    <br>
+                    <!-- <a href="Admin.html"><h4>Admin Dashboard</h4></a> -->
+                    <br>
+                   
+                    <br>
+                    <h4>or sign up with</h4>
+                    <br>
+                    <br>
+                    <span id="sign_in_options">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-facebook" viewBox="0 0 16 16">
+                        <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z"/>
+                      </svg>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-google" viewBox="0 0 16 16">
+                        <path d="M15.545 6.558a9.42 9.42 0 0 1 .139 1.626c0 2.434-.87 4.492-2.384 5.885h.002C11.978 15.292 10.158 16 8 16A8 8 0 1 1 8 0a7.689 7.689 0 0 1 5.352 2.082l-2.284 2.284A4.347 4.347 0 0 0 8 3.166c-2.087 0-3.86 1.408-4.492 3.304a4.792 4.792 0 0 0 0 3.063h.003c.635 1.893 2.405 3.301 4.492 3.301 1.078 0 2.004-.276 2.722-.764h-.003a3.702 3.702 0 0 0 1.599-2.431H8v-3.08h7.545z"/>
+                      </svg>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-twitter" viewBox="0 0 16 16">
+                        <path d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z"/>
+                      </svg>
+                    </span>
+            </div>
+            </div>
+            </form>
+        </section>
+
+</body>
+</html>

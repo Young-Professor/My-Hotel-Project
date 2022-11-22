@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Administration</title>
+    <link rel="stylesheet" href="Admin.css" />
+    <script defer src="UpdateRooms.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  </head>
+
+  <body>
+    <section class="headerNav">
+      <img
+        height="80px"
+        loading="lazy"
+        id="logo"
+        src="photos/10 star hotel logo png.png"
+        alt=""
+      />
+      <h2>10-Star Hotel</h2>
+      <h3>
+        Patrick Murani
+        <svg
+          height="40px"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          class="w-6 h-6"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M17.982 18.725A7.488 7.488 0 0012 15.75a7.488 7.488 0 00-5.982 2.975m11.963 0a9 9 0 10-11.963 0m11.963 0A8.966 8.966 0 0112 21a8.966 8.966 0 01-5.982-2.275M15 9.75a3 3 0 11-6 0 3 3 0 016 0z"
+          />
+        </svg>
+      </h3>
+    </section>
+
+    <hr />
+    <section class="Admin">
+      <div id="navigations">
+        <div id="routes">
+          <span
+            ><svg
+              style="height: 27px"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="w-6 h-6"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+              /></svg
+          ></span>
+          <b><a href="#">Dashboard</a></b>
+        </div>
+        <br />
+        <div id="routes">
+          <span>
+            <svg
+              style="height: 27px"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="w-6 h-6"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z"
+              /></svg
+          ></span>
+          <b><a href="#">Customer</a></b>
+        </div>
+        <br />
+        <div id="routes">
+          <span
+            ><svg
+              style="height: 27px"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="w-6 h-6"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z"
+              />
+            </svg>
+          </span>
+          <b><a href="#orders">Orders</a></b>
+        </div>
+        <br />
+        <div id="routes">
+          <span
+            ><svg
+              style="height: 27px"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="w-6 h-6"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0111.186 0z"
+              />
+            </svg>
+          </span>
+          <b><a href="#Bookings">Bookings</a></b>
+        </div>
+        <br />
+        <div id="routes">
+          <span
+            ><svg
+              style="height: 27px"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="w-6 h-6"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M7.5 8.25h9m-9 3H12m-9.75 1.51c0 1.6 1.123 2.994 2.707 3.227 1.129.166 2.27.293 3.423.379.35.026.67.21.865.501L12 21l2.755-4.133a1.14 1.14 0 01.865-.501 48.172 48.172 0 003.423-.379c1.584-.233 2.707-1.626 2.707-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0012 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018z"
+              />
+            </svg>
+          </span>
+          <b><a href="">Messages</a></b>
+        </div>
+        <hr />
+        <br />
+        <br />
+        <div>
+          <button id="NewProduct">+ New Product</button>
+          <button id="NewProductForSmall">+</button>
+        </div>
+
+        <!-- <h4>Log out</h4> -->
+      </div>
+
+      <div class="dashboard">
+        <h3>Dashboard</h3>
+        <div id="Analytics">
+          <span>
+            <h1>Customers</h1>
+            <h1 id="tatolcust">0</h1>
+          </span>
+
+          <span>
+            <h1>Orders</h1>
+            <h1>0</h1>
+          </span>
+
+          <span>
+            <h1>Bookings</h1>
+            <h1 id="Ttbookings">0</h1>
+          </span>
+        </div>
+        <br />
+        <hr />
+        <br />
+        <section class="MyMessages">
+        
+          <h3>Messages</h3>
+            
+            <div id="Messages">
+
+            </div>
+         
+        </section>
+      </div>
+      <div class="preview">
+        <div id="review">
+          <h3>Feedback</h3>
+        </div>
+        <div id="review">
+          <h3>Recent update</h3>
+        </div>
+      </div>
+    </section>
+    <br />
+    <br />
+    <br />
+    <!-- Booking Area -->
+    <br />
+    <section class="Book_Order">
+      <h1>Bookings</h1>
+      <br />
+      <div id="Bookings">
+        <table>
+          <thead id="theaders">
+            <th>Customer_Id</th>
+            <th>Account_Number</th>
+            <th>Check_in_date</th>
+            <th>Check_out_date</th>
+            <th>Booking_date</th>
+            <th>Room_booked</th>
+          </thead>
+          <!-- <tr width="200px" >
+
+          </tr> -->
+          <!-- Where items will be kept after they have been removed from database -->
+          <tbody id='bookeed' class="BookItems">
+            <th bgcolor="skyblue" height="30px" width="200px"></th>
+            <th bgcolor="skyblue" height="30px" width="200px"></th>
+            <th bgcolor="skyblue" height="30px" width="200px"></th>
+            <th bgcolor="skyblue" height="30px" width="200px"></th>
+            <th bgcolor="skyblue" height="30px" width="200px"></th>
+            <th bgcolor="skyblue" height="30px" width="200px"></th>
+          </tbody>
+        </table>
+      </div>
+      <br />
+      <h1>Orders</h1>
+      <br />
+      <div id="orders">
+        <table>
+          <thead>
+            <tr width="200px">
+              <th bgcolor="tan" height="30px" width="200px">Customer Name</th>
+              <th bgcolor="tan" height="30px" width="200px">Item Ordered</th>
+              <th bgcolor="tan" height="30px" width="200px">Number of items</th>
+              <th bgcolor="tan" height="30px" width="200px">Order date</th>
+              <th bgcolor="tan" height="30px" width="200px">Derivery location</th>
+            </tr>
+          </thead>
+          
+         
+          <tr width="200px">
+            <td bgcolor="skyblue" height="30px" width="200px"></td>
+            <td bgcolor="skyblue" height="30px" width="200px"></td>
+            <td bgcolor="skyblue" height="30px" width="200px"></td>
+            <td bgcolor="skyblue" height="30px" width="200px"></td>
+            <td bgcolor="skyblue" height="30px" width="200px"></td>
+          </tr>
+          <tr width="200px">
+            <th bgcolor="skyblue" height="30px" width="200px"></th>
+            <th bgcolor="skyblue" height="30px" width="200px"></th>
+            <th bgcolor="skyblue" height="30px" width="200px"></th>
+            <th bgcolor="skyblue" height="30px" width="200px"></th>
+            <th bgcolor="skyblue" height="30px" width="200px"></th>
+          </tr>
+        </table>
+      </div>
+      <br />
+      <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous"> -->
+      <br />
+      <!-- <button class="button">Show</button> -->
+      <dialog id="updateproduct">
+        <br />
+        <form method="post" id="updaterooms" method="dialog">
+          <h3>Update room details</h3>
+          <br />
+
+          <label for="Room name"><b>Room type</b></label>
+          <input
+            class="Room name"
+            id="RoomType"
+            type="text"
+            name="FName"
+            placeholder=""
+            required
+          />
+
+          <label for="Room name"><b>Room name</b></label>
+          <input
+            class="Room name"
+            id="Room name"
+            type="text"
+            name="FName"
+            placeholder=""
+            required
+          />
+          <br />
+          <br />
+
+          <label for="Room name"><b>Available rooms</b></label>
+          <input
+            class="Room name"
+            id="RoomAvailability"
+            type="text"
+            name="FName"
+            placeholder=""
+            required
+          />
+
+          <label for="Room name"><b>Room price</b></label>
+          <input
+            class="Room name"
+            id="RoomPrice"
+            type="text"
+            name="FName"
+            placeholder=""
+            required
+          />
+          <br />
+          <br />
+
+          <label for="LeavingFeedBack" class="form-label"
+            ><b>Room description</b></label
+          >
+          <br />
+          <textarea
+            placeholder="Enter rooms description..."
+            class="form-control"
+            id="roomDescription"
+          ></textarea>
+          <br />
+          <br />
+          <label for="Room name"><b>Image</b></label>
+          <br />
+          <input type="file" name="imagepath" id="imagepath" />
+
+          <br />
+          <br />
+
+          <input type="submit" id="close" class="submit" value="Submit" />
+        </form>
+        <!-- <button class="close">Close</button> -->
+      </dialog>
+      <br />
+      
+      <script>
+        const button = document.querySelector("#NewProduct");
+        const AddRoombutton = document.querySelector("#NewProductForSmall");
+        const closed = document.querySelector("#close");
+        const modal = document.querySelector("#updateproduct");
+
+        <!-- For small devices -->
+        AddRoombutton.addEventListener("click", () => {
+          modal.showModal();
+        });
+        button.addEventListener("click", () => {
+          modal.showModal();
+        });
+        closed.addEventListener("click", () => {
+          modal.close();
+        });
+        const customerName = document.querySelector(".customerName");
+        const checkinDate = document.querySelector(".checkinDate");
+        const checkoutDate = document.querySelector(".checkoutDate");
+        const bookingDate = document.querySelector(".bookingDate");
+        const roomBooked = document.querySelector(".roomBooked");
+        window.addEventListener("load", async () => {
+          fetch("http://localhost:3000/availablebookings").then((RoomsBooked)=>{
+            return RoomsBooked.json();  
+          }).then((RoomsBookedd)=>{
+            let tableData="";
+              RoomsBookedd.map((values,index)=>{
+                
+                tableData+=
+                `
+                <tr width="200px" class="${index}">
+                  <td bgcolor="skyblue">${values.FNAME}</td>
+                  <td bgcolor="skyblue" id="">${values.ACCOUNT}</td>
+                  <td bgcolor="skyblue">${values.CHECK_IN.slice(0,10)}</td>
+                  <td bgcolor="skyblue">${values.CHECK_OUT.slice(0, 10)}</td>
+                  <td bgcolor="skyblue">${values.BOOKING_DATE.slice(0,10)}<span style="margin-left:1rem;">${values.BOOKING_DATE.slice(11,16)}hrs</span></td>
+                  <td bgcolor="skyblue">${values.ROOM_NAME}</td>
+                  <button class="Click" onclick="alertS()">Click Me</button>
+                </tr>
+                `
+              })
+              document.querySelector("#bookeed").
+              innerHTML=tableData;
+          })
+        });
+function alertS(){
+  alert()
+}
+        window.addEventListener("load", async () => {
+        fetch("http://localhost:3000/Messages").then((msg)=>{
+          return msg.json();  
+        }).then((msges)=>{
+          let MessageDisplay="";
+            msges.map((values)=>{
+              
+              MessageDisplay+=
+              `
+          <p>
+            <b>${values.FNAME}</b><br />
+            ${values.MESSAGES}
+          </p>
+            <hr>
+              `
+            })
+            document.querySelector("#Messages").
+            innerHTML=MessageDisplay;
+        })
+      });
+
+
+        window.addEventListener("load", async () => {
+        fetch("http://localhost:3000/TotalCustomers").then((T_cust)=>{
+          return T_cust.json();  
+        }).then((Tatol_cust)=>{
+         let Tatol_customers=Tatol_cust[0].TotalCustomers;
+         document.querySelector("#tatolcust").innerHTML=Tatol_customers;
+        })
+      });
+
+        window.addEventListener("load", async () => {
+        fetch("http://localhost:3000/TotalBookings").then((T_bookin)=>{
+          return T_bookin.json();  
+        }).then((Tatol_bookin)=>{
+         let Tatol_Bookings=Tatol_bookin[0].TotalBookings;
+         document.querySelector("#Ttbookings").innerHTML=Tatol_Bookings;
+        })
+      });
+      </script>
+    </section>
+  </body>
+</html>

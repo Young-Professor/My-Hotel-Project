@@ -1,0 +1,22 @@
+.About {
+    padding-top: 10px;
+    text-align: center;
+    color: white;
+    height: auto;
+    background-image: url("photos/hotelB.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+
+  }
+  .About h1 {
+    font-size: 3.5rem;
+  }
+  .About h2 {
+    color: rgb(255, 255, 255);
+    font-size: 2rem;
+  }
+  .About p {
+    font-size: 1.3rem;
+    color: rgb(2, 238, 255);
+  }
+ 

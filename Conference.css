@@ -1,0 +1,165 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: large;
+    height: auto;
+    width: 100%;
+    background-image: url("Hoteli/CONFERENCE  BG2.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/*-------------------------------------------row 1----------------------------------------------------- */
+.row{
+    background-image: url("Hoteli/CONFERENCE  BG2.jpg");
+    background-size: cover;
+    background-repeat: no-repeat; 
+    background-color: rgb(235, 18, 199);
+    display: grid;
+    grid-template-columns: repeat(3, 2fr);
+    /* justify-content: space-between; */
+}
+
+.all{
+    /* display: block; */
+   /* background-image: linear-gradient(to right, rgb(194, 194, 245) 0%, rgb(99, 101, 202) 50%, rgb(65, 66, 133) 100%); */
+
+   background-color: rgb(219, 174, 212);
+   /* margin-bottom: 10px   ; */
+    width: 95%;
+    height: auto;
+    padding: 1%;
+    margin: 1%;
+    border-radius: 5%;
+   
+}
+
+#image1{
+    border-radius: 15px;
+    background-image: url("Hoteli/Trade2.jpg");
+    padding:0;
+    color: white;
+    width: 100%;
+    height: 150px;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+#image2{
+    border-radius: 15px;
+    background-image: url("Hoteli/Academic2.jpg");
+    padding:0;
+    color: white;
+    width: 100%;
+    height: 150px;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+#image3{
+    border-radius: 15px;
+    background-image: url("Hoteli/Peace2.jpg");
+    padding:0;
+    color: white;
+    width: 100%;
+    height: 150px;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+#image4{
+    border-radius: 15px;
+    background-image: url("Hoteli/Authors2.jpg");
+    padding:0;
+    color: white;
+    width: 100%;
+    height: 150px;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+#image5{
+    border-radius: 15px;
+    background-image: url("Hoteli/Professional2.jpg");
+    padding:0;
+    color: white;
+    width: 100%;
+    height: 150px;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+#image6{
+    border-radius: 15px;
+    background-image: url("Hoteli/Settlement2.jpg");
+    padding:0;
+    color: white;
+    width: 100%;
+    height: 150px;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+#booknow {
+    align-content: center;
+    margin-bottom: 0;
+    width: 100%;
+}
+
+#description{
+    height: 50%;
+    /* background-color:red; */
+}
+#booknow button{
+    margin-bottom: 5%;
+    border-radius: 10px;
+    background-color: #c92f48;
+    color: white;
+    width: 100%;
+    height: 30px;
+}
+
+@media only screen and (max-width: 420px) {
+   .all{
+    width: 95%;
+   }
+    .row{
+        display: block;
+        
+    }
+    /* .row div div{
+        height: auto;
+    } */
+
+    /* #booknow{
+        margin-bottom: 0%;
+    } */
+}
+@media(min-width: 420px)and (max-width: 1000px){
+    .row{
+        display: grid;
+        grid-template-columns: repeat(2, 3fr);
+    }
+    #description{
+        height: 45%;
+        overflow-x: scroll;
+    }
+}
+
+.proceedRoom{
+    width: 30%;
+    height: 65%;
+    background: rgb(219, 174, 212);
+    margin: auto;
+    padding: 20px;
+}
+.proceedRoom::backdrop{
+    background: black;
+    opacity: .7;
+}
+.proceedRoom h1{
+text-align: center;
+background-color: rgb(60, 91, 158);
+color: white;
+}

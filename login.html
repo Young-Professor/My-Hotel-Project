@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="Main.js"></script>
+  <script defer src="login.js"></script>
+  <!-- <script defer src="server.js"></script> -->
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.9.1/axios.min.js"></script> -->
+</head>
+
+<body>
+  <div class="wrapper">
+    <!-- ........................................Navigation area..................................................... -->
+    <nav>
+      <a href="About_Us.html">
+        <img loading="lazy" id="logo" src="photos/10 star hotel logo png.png" alt="" />
+      </a>
+      <div>
+        <ul class="navlinks" id="navlinks">
+          <span class="CancelMenuIcon" onclick="HideMenu()">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+              stroke="currentColor" class="w-6 h-6">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </span>
+          <li>
+            <a href="index.html" class="home_route">
+              <!-- ......Code with the home icon.................... -->
+              <span id="SpanFornavTab"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                  stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                  <path stroke-linecap="round" stroke-linejoin="round"
+                    d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
+                </svg> </span>Home
+            </a>
+            <!-- ........End of Code with the home icon.................... -->
+          </li>
+          <li>
+            <a href="#" class="home_route">Services
+              <span id="SpanForServices" onclick="MoreServices()">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                  stroke="currentColor" class="w-6 h-6">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                </svg>
+              </span>
+              <span id="SpanFornavTab">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                  stroke="currentColor" class="w-6 h-6">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                </svg> </span></a>
+            <ul id="dropdown-menu">
+              <li><a href="Recreation.html">Recreation</a></li>
+              <li><a href="Food&Drinks.html">Bar and Restaurant</a></li>
+              <li><a href="#">Conference</a></li>
+            </ul>
+          </li>
+          <li><a href="Accomodation.html">Accomodation</a></li>
+          <li><a href="Contacts.html">Contacts Us</a></li>
+          <li><a href="About_Us.html">About</a></li>
+          <li style="background-color: green; padding: 10px; border-radius: 10px; ">
+            <a href="login.html">Sign In</a>
+          </li>
+        </ul>
+      </div>
+      <span class="MenuIcon" onclick="ShowMenu()">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+          class="w-6 h-6">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+        </svg>
+      </span>
+    </nav>
+    <!-- ........................................End..................................................... -->
+    <!-- ........................................Area that covers the screen height..................................................... -->
+    <section class="AreaCoveringTheScreen">
+      <div class="login_form">
+        <h2>LOGIN</h2>
+        <h4 style="color: black;">Please enter your username and password</h4>
+        <br>
+
+        <form id="loginCredentials" action="/login" method="POST">
+          <br>
+          <input id="username" type="email" name="username" placeholder="Username" required>
+          <br>
+          <br>
+          <input id="password" type="password" name="password" placeholder="Password">
+          <br>
+          <br>
+          <br>
+          <h4>Forgot password?</h4>
+          <br>
+          <button type="submit" id="login" style="background-color: rgb(85, 85, 200)  ;">Submit</button>
+          <br>
+          <br>
+          <h4>Don't have an accout? <a style="color: blue;" href="Sign up.html">Sign Up</a></h4>
+        </form>
+      </div>
+    </section>
+    
+</body>
+
+</html>

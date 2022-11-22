@@ -1,0 +1,242 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+  }
+
+  html {
+    scroll-behavior:smooth;
+    
+  }
+  
+  .headerNav{
+    display: flex;
+    /* grid-template-columns: 3fr,3; */
+    justify-content: space-between;
+    background-color: white;
+    height: 70px;
+    width: 100%;
+    
+}
+#Bookings{
+    /* display: none; */
+    height: 200px;
+    width: 20px;
+    overflow: scroll;  
+}
+.headerNav h2{
+    margin-top: 30px;
+    /* margin-right: 67%; */
+}
+.Admin{
+    display: flex;
+}
+#navigations{
+    width:25%;
+    /* height: calc(100vh - 70px); */
+    background-color: rgb(233, 229, 229);
+    display: block;
+}
+.dashboard{
+    width: 50%;
+    background-color: rgb(255, 255, 255);
+    /* margin-left: 2px; */
+    height: calc(100vh -70px);
+}
+.preview{
+    width: 25%;
+    /* margin-left: 2px; */
+    height: calc(100vh -70px);
+    background-color: rgb(233, 229, 229);
+}
+#Analytics{
+    display: flex;
+    justify-content: space-between;
+}
+#Analytics span{
+    height: 150px;
+    width: 200px;
+    background-color: rgb(232, 211, 224);
+    border-radius: 10px;
+    margin: 20px;
+}
+#Analytics span h1{
+    margin-top: 15px;
+    text-align: center;
+}
+.BookItems{
+    width: 100px;
+    height: 40;
+    /* display: none; */
+}
+.BookItems td{
+    /* display: none; */
+    /* background-color: aqua; */
+    height: 30px;
+    width: 20px;
+    text-align: center;
+}
+.MyMessages {
+    /* background-color: tan; */
+}
+.MyMessages h3{
+    text-align: center;
+    
+}
+#Messages{
+    height: 345px;
+    /* width: 90%; */
+    margin-left: 10px;
+    /* background-color: rgb(252, 243, 232); */
+    /* border-radius: 10px; */
+    overflow: scroll;
+}
+#Messages h3{
+   text-align: center;
+   padding: 10px;
+}
+#Messages p{
+ /* width: 99%; */
+ /* margin-left:3px; */
+ height: 65px;
+ background-color: rgb(255, 220, 220);
+ padding: 10px;
+ overflow: hidden;
+}
+#review{
+    height: 250px;
+    width: 90%;
+    background-color: rgb(123, 152, 202);
+    border-radius: 10px;
+    margin: 20px;
+}
+#review h3{
+    text-align: center;
+     padding: 10px;
+}
+#routes{
+    display: flex;
+}
+#routes b{
+    margin-left: 15%;
+}
+
+#navigations div {
+    padding: 5%;
+}
+#NewProduct{
+    border-style: dotted;
+    border-radius: 10px;
+    padding: 20px;
+    width: 90%;
+    font-size: 1.1rem;
+}
+#NewProductForSmall{
+    display: none;
+}
+
+#Bookings{
+    height: 300px;
+    width:80%;
+    margin-left: 10%;
+    background-color: rgb(230, 189, 219);
+    border-radius: 5px;
+    padding: 20px;
+    overflow: scroll;
+}
+#theaders th{
+    height: 30px;
+    width: 170px;
+    background-color: tan;
+}
+#orders{
+    height:auto;
+    width: 80%;
+    margin-left: 10%;
+    background-color: rgb(229, 189, 221);
+    border-radius: 10px;
+    padding: 20px;
+}
+.Book_Order h1{
+text-align: center;
+}
+#updateproduct{
+    height: 500px;
+    width: 700px;
+    /* background-color: rgb(245, 222, 248); */
+    margin: auto;
+    padding: 10px;
+}
+#updateproduct h3{
+    text-align: center;
+}
+#updateproduct label{
+    margin-left: 20px;
+}
+#updateproduct input{
+    height: 30px;
+}
+#imagepath{
+    margin-left: 20px;
+    padding: 8px;
+}
+#updateproduct textarea{
+    margin-left: 20px;
+    height: 150px;
+    width: 400px;
+    padding: 10px;
+    font-size: 18px;
+}
+.submit{
+    margin-left: 80%;
+width: 80px;
+}
+
+#updateproduct::backdrop{
+    background: rgb(0, 0, 0);
+    opacity: .7;
+}
+@media (max-width:720px) {
+    #navigations{
+        width:5%;
+    }
+    .dashboard{
+        width: 65%;
+    }
+    .preview{
+        width: 30%;
+    }
+    #Analytics{
+        /* overflow: scroll; */
+    }
+    #Analytics span{
+        height: 150px;
+        /* width: 900px; */
+        margin: 10px;
+    }
+    #Analytics span h1{
+        font-size: 0.9rem;
+        margin-top: 15px;
+        text-align: center;
+    }
+    #theaders th{
+        height: 30px;
+        width: 270px;
+        background-color: tan;
+    }
+    .BookItems td{
+        height: 30px;
+        width: 20px;
+        text-align: left;
+    }
+
+    #NewProduct{
+        display: none;
+    }
+    #NewProductForSmall{
+        border-style: none;
+        display: block;
+        font-size: 1.7rem;
+    }
+}
